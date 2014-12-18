@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 using GenesysLibrary;
-using Action = System.Action;
 
 namespace GenesysGUI
 {
@@ -90,7 +89,7 @@ namespace GenesysGUI
         {
             if (InvokeRequired)
             {
-                BeginInvoke((Action) (() => enableUI()));
+                BeginInvoke((System.Action) (() => enableUI()));
             }
             else
             {
@@ -110,7 +109,7 @@ namespace GenesysGUI
             Breeder breeder = new Breeder(m_grid, m_crossover, m_mutation, m_percentage);
             m_experiment = new Experiment(breeder, m_population);
             m_experiment.StatusChangedHandler += experimentOnStatusChangedHandler;
-            m_experiment.TaskEvaluatedHandler += experimentOnTaskEvaluatedHandler;
+            //m_experiment.TaskEvaluatedHandler += experimentOnTaskEvaluatedHandler;
             m_experiment.GenerationCompleteHandler += experimentOnGenerationCompleteHandler;
             m_experiment.Run(m_generations);
             stop();
@@ -120,7 +119,7 @@ namespace GenesysGUI
         {
             if (InvokeRequired)
             {
-                BeginInvoke((Action)(() => UpdateProgress(value)));
+                BeginInvoke((System.Action)(() => UpdateProgress(value)));
             }
             else
             {
@@ -132,7 +131,7 @@ namespace GenesysGUI
         {
             if (InvokeRequired)
             {
-                BeginInvoke((Action)(() => UpdateStatus(text)));
+                BeginInvoke((System.Action)(() => UpdateStatus(text)));
             }
             else
             {
@@ -144,7 +143,7 @@ namespace GenesysGUI
         {
             if (InvokeRequired)
             {
-                BeginInvoke((Action)(() => UpdateGenerations(text)));
+                BeginInvoke((System.Action)(() => UpdateGenerations(text)));
             }
             else
             {
