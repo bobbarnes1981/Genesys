@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenesysCLI", "GenesysCLI\Ge
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenesysLibraryTests", "GenesysLibraryTests\GenesysLibraryTests.csproj", "{F7EB51AD-BEEE-46A3-9BA6-E43FB7D1F32F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenesysGUI", "GenesysGUI\GenesysGUI.csproj", "{E9A09250-F14C-4516-AFB8-43CB8211AC16}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{F7EB51AD-BEEE-46A3-9BA6-E43FB7D1F32F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F7EB51AD-BEEE-46A3-9BA6-E43FB7D1F32F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F7EB51AD-BEEE-46A3-9BA6-E43FB7D1F32F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9A09250-F14C-4516-AFB8-43CB8211AC16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9A09250-F14C-4516-AFB8-43CB8211AC16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9A09250-F14C-4516-AFB8-43CB8211AC16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9A09250-F14C-4516-AFB8-43CB8211AC16}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

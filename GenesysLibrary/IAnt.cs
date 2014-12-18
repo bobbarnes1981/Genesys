@@ -4,6 +4,6 @@
     {
         Genome Genes { get; }
         Action ProcessInput(bool input);
-        IAnt Mate(IAnt mate, double crossover, double mutation);
+        IAnt Mate(IAnt mate, decimal crossover, decimal mutation);
     }
 }

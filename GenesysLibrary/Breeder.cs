@@ -6,15 +6,17 @@ namespace GenesysLibrary
     {
         private static Random m_random = new Random();
 
+        public IAntFactory AntFactory = new AntFSAFactory();
+
         private Grid m_grid;
 
-        private double m_crossover = 0.50;
+        private decimal m_crossover = 0.50m;
 
-        private double m_mutation = 0.05;
+        private decimal m_mutation = 0.05m;
 
-        private double m_percentage = 0.1;
+        private decimal m_percentage = 0.1m;
 
-        public Breeder(Grid grid, double crossover, double mutation, double percentage)
+        public Breeder(Grid grid, decimal crossover, decimal mutation, decimal percentage)
         {
             m_grid = grid;
             m_crossover = crossover;
@@ -28,8 +30,7 @@ namespace GenesysLibrary
 
             for (int i = 0; i < size; i++)
             {
-                // TODO: accept <T> where T : IAnt, new() and do new T().Load(Genome.Random) or something
-                tasks[i] = new Tracker(m_grid, AntFSA.Random());
+                tasks[i] = new Tracker(m_grid, AntFactory.Generate());
             }
 
             return tasks;
@@ -38,13 +39,6 @@ namespace GenesysLibrary
         public Tracker[] Breed(Tracker[] tasks)
         {
             int numberToBreed = (int)(tasks.Length * m_percentage);
-
-            Console.Write("Top {0} scores:", numberToBreed);
-            for (int i = 0; i < numberToBreed; i++)
-            {
-                Console.Write("{0},", tasks[i].Score);
-            }
-            Console.WriteLine();
 
             Tracker[] newTasks = new Tracker[tasks.Length];
 
@@ -55,7 +49,7 @@ namespace GenesysLibrary
                 do
                 {
                     taskB = tasks[m_random.Next(0, numberToBreed)];
-                } while (taskA == taskB);
+                } while (taskB == taskA);
                 IAnt ant = taskA.Ant.Mate(taskB.Ant, m_crossover, m_mutation);
                 newTasks[j] = new Tracker(m_grid, ant);
             }

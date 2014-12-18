@@ -10,8 +10,8 @@
         }
 
         public abstract Action ProcessInput(bool input);
-        
-        public IAnt Mate(IAnt mate, double crossover, double mutation)
+
+        public IAnt Mate(IAnt mate, decimal crossover, decimal mutation)
         {
             return new AntFSA(Genes.Combine(mate.Genes, crossover, mutation));
         }

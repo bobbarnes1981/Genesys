@@ -13,7 +13,9 @@ namespace GenesysCLI
                 int generations;
                 if (int.TryParse(args[1], out population) && int.TryParse(args[2], out generations))
                 {
-                    new Experiment(new Grid(args[0], 200), population, generations).Run();
+                    Grid grid = new Grid(args[0], 200);
+                    Breeder breeder = new Breeder(grid, 0.5m, 0.05m, 0.1m);
+                    new Experiment(breeder, population).Run(generations);
                 }
                 else
                 {

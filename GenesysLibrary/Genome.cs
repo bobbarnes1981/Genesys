@@ -65,7 +65,7 @@ namespace GenesysLibrary
             return result;
         }
 
-        public Genome Combine(Genome that, double crossover, double mutation)
+        public Genome Combine(Genome that, decimal crossover, decimal mutation)
         {
             if (m_genes.Length != that.m_genes.Length)
             {
@@ -75,7 +75,7 @@ namespace GenesysLibrary
             for (int i = 0; i < genes.Length; i++)
             {
                 // crossover
-                if (m_random.NextDouble() < crossover)
+                if (Convert.ToDecimal(m_random.NextDouble()) < crossover)
                 {
                     genes.m_genes[i] = m_genes[i];
                 }
@@ -84,7 +84,7 @@ namespace GenesysLibrary
                     genes.m_genes[i] = that.m_genes[i];
                 }
                 // point mutation
-                if (m_random.NextDouble() < mutation)
+                if (Convert.ToDecimal(m_random.NextDouble()) < mutation)
                 {
                     genes.m_genes[i] = !genes.m_genes[i];
                 }
