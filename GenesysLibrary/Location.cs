@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GenesysLibrary
+﻿namespace GenesysLibrary
 {
     public class Location
     {
@@ -12,15 +6,45 @@ namespace GenesysLibrary
 
         public int Y { get; set; }
 
+        public Location()
+            : this(0, 0)
+        {
+        }
+
+        public Location(Location location)
+            : this(location.X, location.Y)
+        {
+        }
+
         public Location(int x, int y)
         {
-            this.X = x;
-            this.Y = y;
+            X = x;
+            Y = y;
+        }
+
+        public Location North
+        {
+            get { return new Location(X, Y - 1); }
+        }
+
+        public Location South
+        {
+            get { return new Location(X, Y + 1); }
+        }
+
+        public Location East
+        {
+            get { return new Location(X + 1, Y); }
+        }
+
+        public Location West
+        {
+            get { return new Location(X - 1, Y); }
         }
 
         public override string ToString()
         {
-            return string.Format("{0}, {1}", this.X, this.Y);
+            return string.Format("{0}, {1}", X, Y);
         }
     }
 }

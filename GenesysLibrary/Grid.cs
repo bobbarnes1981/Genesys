@@ -1,21 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO;
 
 namespace GenesysLibrary
 {
-    public class Grid : ICloneable
+    public class Grid
     {
-        private bool[,] data;
+        private bool[,] m_data;
+
+        public int Limit { get; private set; }
 
         public int X
         {
             get
             {
-                return this.data.GetLength(0);
+                return m_data.GetLength(0);
             }
         }
 
@@ -23,59 +20,55 @@ namespace GenesysLibrary
         {
             get
             {
-                return this.data.GetLength(1);
+                return m_data.GetLength(1);
             }
         }
 
         public Grid(Grid grid)
         {
-            this.data = new bool[grid.X, grid.Y];
+            Limit = grid.Limit;
+
+            m_data = new bool[grid.X, grid.Y];
 
             for (int y = 0; y < grid.Y; y++)
             {
                 for (int x = 0; x < grid.X; x++)
                 {
-                    data[x, y] = grid.GetLocation(x, y);
+                    m_data[x, y] = grid[x, y];
                 }
             }
         }
 
-        public Grid(string path)
+        public Grid(string path, int limit)
         {
+            Limit = limit;
+
             string[] source = File.ReadAllLines(path);
 
-            this.data = new bool[source[0].Length, source.Length];
+            m_data = new bool[source[0].Length, source.Length];
 
             for (int y = 0; y < source.Length; y++)
             {
                 for (int x = 0; x < source[y].Length; x++)
                 {
-                    data[x, y] = source[y][x] == 'O';
+                    m_data[x, y] = source[y][x] == 'O';
                 }
             }
         }
 
-        public bool GetLocation(Location location)
+        public bool this[Location location]
         {
-            return this.GetLocation(location.X, location.Y);
+            get { return this[location.X, location.Y]; }
+            set { this[location.X, location.Y] = value; }
         }
 
-        private bool GetLocation(int x, int y)
+        private bool this[int x, int y]
         {
-            return this.data[x, y];
+            get { return m_data[x, y]; }
+            set { m_data[x, y] = value; }
         }
 
-        public void SetLocation(Location location, bool state)
-        {
-            this.SetLocation(location.X, location.Y, state);
-        }
-
-        private void SetLocation(int x, int y, bool state)
-        {
-            this.data[x, y] = state;
-        }
-
-        public object Clone()
+        public Grid Copy()
         {
             return new Grid(this);
         }

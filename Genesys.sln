@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
-MinimumVisualStudioVersion = 10.0.40219.1
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenesysLibrary", "GenesysLibrary\GenesysLibrary.csproj", "{54AE9025-D1AC-4985-9F30-58A103B191CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenesysCLI", "GenesysCLI\GenesysCLI.csproj", "{2DF44F13-A087-4146-B25C-C435A3156266}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenesysLibraryTests", "GenesysLibraryTests\GenesysLibraryTests.csproj", "{F7EB51AD-BEEE-46A3-9BA6-E43FB7D1F32F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,14 @@ Global
 		{54AE9025-D1AC-4985-9F30-58A103B191CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{54AE9025-D1AC-4985-9F30-58A103B191CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{54AE9025-D1AC-4985-9F30-58A103B191CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DF44F13-A087-4146-B25C-C435A3156266}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DF44F13-A087-4146-B25C-C435A3156266}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DF44F13-A087-4146-B25C-C435A3156266}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DF44F13-A087-4146-B25C-C435A3156266}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7EB51AD-BEEE-46A3-9BA6-E43FB7D1F32F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7EB51AD-BEEE-46A3-9BA6-E43FB7D1F32F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7EB51AD-BEEE-46A3-9BA6-E43FB7D1F32F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7EB51AD-BEEE-46A3-9BA6-E43FB7D1F32F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
